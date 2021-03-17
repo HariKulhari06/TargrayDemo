@@ -1,8 +1,10 @@
 package com.hari.sample.di.modules
 
+import com.hari.sample.data.EmployeeRepositoryImpl
 import com.hari.sample.data.UserRepositoryImpl
 import com.hari.sample.data.db.UserDatabase
 import com.hari.sample.data.db.RoomDatabase
+import com.hari.sample.model.repository.EmployeeRepository
 import com.hari.sample.model.repository.UserRepository
 import dagger.Binds
 import dagger.Module
@@ -15,4 +17,7 @@ import dagger.hilt.android.components.ViewModelComponent
 abstract class ViewModelBinds {
     @Binds
     abstract fun bindUserRepository(impl: UserRepositoryImpl): UserRepository
+
+    @Binds
+    abstract fun bindEmployeeRepository(impl: EmployeeRepositoryImpl): EmployeeRepository
 }

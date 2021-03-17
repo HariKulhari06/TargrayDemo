@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="employee"
+            type="com.hari.sample.model.Employee" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="@{clickListener}"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textId"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_badge"
+                android:gravity="center"
+                android:text='@{"#" +employee.id}'
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="#1" />
+
+            <TextView
+                android:id="@+id/employeeName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:text="@{employee.name}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintEnd_toStartOf="@+id/edit"
+                app:layout_constraintStart_toEndOf="@+id/textId"
+                app:layout_constraintTop_toTopOf="@+id/textId"
+                tools:text="Hari Singh Kulhari" />
+
+            <ImageView
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackgroundBorderless"
+                android:onClick="@{clickListener}"
+                android:padding="5dp"
+                android:src="@drawable/ic_round_edit_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/employeeName"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textGender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{employee.gender}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/employeeName"
+                app:layout_constraintTop_toBottomOf="@+id/employeeName"
+                tools:text="Gender: Male" />
+
+
+            <TextView
+                android:id="@+id/textAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text='@{employee.age + "Year(s)"}'
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/employeeName"
+                app:layout_constraintTop_toBottomOf="@+id/textGender"
+                tools:text="Age: 29 Year" />
+
+
+            <TextView
+                android:id="@+id/textSalary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text='@{"INR "+employee.salary}'
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/employeeName"
+                app:layout_constraintTop_toBottomOf="@+id/textAge"
+                tools:text="Salary: INR 42,000" />
+
+            <TextView
+                android:id="@+id/textAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{employee.address}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/employeeName"
+                app:layout_constraintTop_toBottomOf="@+id/textSalary"
+                tools:text="Address: Male 29 Year 317 Pratap Apartment - LIG Block, Sector 29, Pratap Nagar, Jaipur, Rajasthan 302022" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

@@ -11,6 +11,11 @@ plugins {
     id("dagger.hilt.android.plugin")
 }
 
+
+kapt {
+    correctErrorTypes = true
+}
+
 android {
     compileSdkVersion(Versions.androidCompileSdkVersion)
     defaultConfig {
@@ -27,8 +32,8 @@ android {
         }
     }
 
-    dataBinding {
-        isEnabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
     compileOptions {
@@ -51,6 +56,10 @@ dependencies {
     implementation(Dep.AndroidX.swiperefreshlayout)
 
     implementation(Dep.Jetpack.room)
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0")
     kapt(Dep.Jetpack.roomCompiler)
 
     implementation(Dep.Navigation.fragmentKtx)
@@ -66,4 +75,9 @@ dependencies {
     implementation(Dep.Retrofit.gson)
 
     implementation(Dep.Picasso.picasso)
+
+
+    implementation(Dep.Epoxy.core)
+    kapt(Dep.Epoxy.epoxyProcessor)
+    implementation(Dep.Epoxy.databinding)
 }

@@ -1,4 +1,4 @@
-rootProject.name = "PracticeSample"
+rootProject.name = "TargrayDemo"
 include(
     ":app"
 )

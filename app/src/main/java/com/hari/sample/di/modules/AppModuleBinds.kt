@@ -1,5 +1,6 @@
 package com.hari.sample.di.modules
 
+import com.hari.sample.data.db.EmployeeDatabase
 import com.hari.sample.data.db.RoomDatabase
 import com.hari.sample.data.db.UserDatabase
 import com.hari.sample.di.appinitializer.AppInitializer
@@ -19,4 +20,7 @@ abstract class AppModuleBinds {
 
     @Binds
     abstract fun bindUserDatabase(impl: RoomDatabase): UserDatabase
+
+    @Binds
+    abstract fun bindEmployeeDatabase(impl: RoomDatabase): EmployeeDatabase
 }

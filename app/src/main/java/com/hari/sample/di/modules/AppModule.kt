@@ -3,6 +3,7 @@ package com.hari.sample.di.modules
 import android.content.Context
 import androidx.room.Room
 import com.hari.sample.data.db.CacheDatabase
+import com.hari.sample.data.db.dao.EmployeeDao
 import com.hari.sample.data.db.dao.UserDao
 import dagger.Module
 import dagger.Provides
@@ -27,5 +28,9 @@ class AppModule {
     @Singleton
     @Provides
     fun provideUserDao(database: CacheDatabase): UserDao = database.userDao()
+
+    @Singleton
+    @Provides
+    fun provideEmployeeDao(database: CacheDatabase): EmployeeDao = database.employeeDao()
 }
 

@@ -96,6 +96,14 @@ object Dep {
     }
 
 
+    object Epoxy{
+        private const val VERSION ="4.4.1"
+        val core = "com.airbnb.android:epoxy:$VERSION"
+        val epoxyProcessor = "com.airbnb.android:epoxy-processor:$VERSION"
+        val databinding = "com.airbnb.android:epoxy-databinding:$VERSION"
+        val paging3 = "com.airbnb.android:epoxy-paging3:$VERSION"
+    }
+
     object Retrofit{
         val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
         val mock = "com.squareup.retrofit2:retrofit-mock:2.9.0"

@@ -16,6 +16,7 @@ buildscript {
         classpath Dep.Kotlin.stdlibJdk8
         classpath Dep.Kotlin.serializationPlugin
         classpath Dep.Dagger.plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
