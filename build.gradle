@@ -1,0 +1,31 @@
+import com.hari.sample.Dep
+
+buildscript {
+    ext {
+        kotlin_version = "1.4.30"
+    }
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url = "https://dl.bintray.com/kotlin/kotlin-eap" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath Dep.Kotlin.plugin
+        classpath Dep.Kotlin.stdlibJdk8
+        classpath Dep.Kotlin.serializationPlugin
+        classpath Dep.Dagger.plugin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

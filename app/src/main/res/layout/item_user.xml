@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.hari.sample.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ImageProfileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            app:imageUrl="@{user.profilePic}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.SampleApp.CircularImageView" />
+
+        <TextView
+            android:id="@+id/textUserName"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@{user.name}"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/ImageProfileImage"
+            app:layout_constraintTop_toTopOf="@+id/ImageProfileImage"
+            tools:text="Hari Singh Kulhari" />
+
+
+        <TextView
+            android:id="@+id/textAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:visibility="gone"
+            android:text="@{String.format(@string/age,user.age)}"
+            android:textAppearance="?textAppearanceCaption"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/age" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/contact_details,user.phoneNumber,user.emailAddress)}"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintBottom_toBottomOf="@id/ImageProfileImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textUserName"
+            app:layout_constraintTop_toBottomOf="@+id/textUserName"
+            tools:text="@string/contact_details" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
