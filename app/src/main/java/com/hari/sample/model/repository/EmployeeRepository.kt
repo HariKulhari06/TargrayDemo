@@ -8,4 +8,5 @@ interface EmployeeRepository {
     suspend fun update(employee: Employee)
     fun getEmployee(empId: Int): Flow<Employee>
     fun fetchEmployeesFlow(): Flow<List<Employee>>
+    suspend fun updateEmployee(employee: Employee)
 }

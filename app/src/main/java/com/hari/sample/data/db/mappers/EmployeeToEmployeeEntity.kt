@@ -8,6 +8,7 @@ import javax.inject.Inject
 class EmployeeToEmployeeEntity @Inject constructor() : Mapper<Employee, EmployeeEntity> {
     override suspend fun map(from: Employee): EmployeeEntity {
         return EmployeeEntity(
+            id = from.id,
             name = from.name,
             address = from.address,
             gender = from.gender,

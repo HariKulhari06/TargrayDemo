@@ -16,4 +16,15 @@ abstract class EmployeeDao : EntityDao<EmployeeEntity> {
 
     @Query("DELETE FROM users")
     abstract fun deleteAll()
+
+    @Query("UPDATE employee SET name = :name, gender= :gender, age= :age , address= :address , salary= :salary WHERE id LIKE :id")
+    fun updateEmployee(
+        id: Int,
+        name: String,
+        gender: String,
+        age: Int,
+        address: String,
+        salary: Double,
+    ) {
+    }
 }

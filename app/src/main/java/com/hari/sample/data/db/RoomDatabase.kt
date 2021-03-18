@@ -64,4 +64,17 @@ class RoomDatabase @Inject constructor(
                 employeeMapper.forLists().invoke(entities)
             }
     }
+
+    override suspend fun updateEmployee(employee: Employee) {
+       /* employeeDao.updateEmployee(
+            id = employee.id,
+            name = employee.name!!,
+            address = employee.address!!,
+            age = employee.age!!,
+            salary = employee.salary!!,
+            gender = employee.gender!!
+        )*/
+
+        employeeDao.update(employeeEntityMapper.map(employee))
+    }
 }

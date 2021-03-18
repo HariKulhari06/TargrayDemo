@@ -24,4 +24,8 @@ class EmployeeRepositoryImpl @Inject constructor(
     override fun fetchEmployeesFlow(): Flow<List<Employee>> {
         return employeeDatabase.fetchEmployeesFlow()
     }
+
+    override suspend fun updateEmployee(employee: Employee) {
+        employeeDatabase.update(employee)
+    }
 }

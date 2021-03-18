@@ -94,7 +94,7 @@
                 android:id="@+id/textSalary"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text='@{"INR "+employee.salary}'
+                android:text="@{employee.formatedSalary()}"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/employeeName"

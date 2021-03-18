@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.hari.sample.R
 import com.hari.sample.databinding.EmployeesFragmentBinding
 import com.hari.sample.employee
@@ -24,7 +25,7 @@ class EmployeesFragment : Fragment(R.layout.employees_fragment) {
         val binding = EmployeesFragmentBinding.bind(view)
 
         binding.addEmployee.setOnClickListener {
-            viewModel.addEmployee()
+            findNavController().navigate(EmployeesFragmentDirections.actionEmployeesFragmentToEmployeeDetailsFragment())
         }
 
         lifecycleScope.launch {
@@ -41,7 +42,7 @@ class EmployeesFragment : Fragment(R.layout.employees_fragment) {
                 emptyEmployeeScreen {
                     id(R.id.epoxy_recycler_view_child_initial_size_id)
                     clickListener { _ ->
-                        viewModel.addEmployee()
+                        findNavController().navigate(EmployeesFragmentDirections.actionEmployeesFragmentToEmployeeDetailsFragment())
                     }
                 }
             } else {
@@ -53,10 +54,16 @@ class EmployeesFragment : Fragment(R.layout.employees_fragment) {
                         clickListener { view ->
                             when (view.id) {
                                 R.id.card -> {
-
+                                    findNavController().navigate(EmployeesFragmentDirections.actionEmployeesFragmentToEmployeeDetailsFragment(
+                                        empId = employee.id,
+                                        name = employee.name!!
+                                    ))
                                 }
                                 R.id.edit -> {
-
+                                    findNavController().navigate(EmployeesFragmentDirections.actionEmployeesFragmentToEmployeeDetailsFragment(
+                                        empId = employee.id,
+                                        name = employee.name!!
+                                    ))
                                 }
                             }
                         }

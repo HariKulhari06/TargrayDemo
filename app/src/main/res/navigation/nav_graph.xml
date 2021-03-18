@@ -11,8 +11,27 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_users">
     </fragment>
+
     <fragment
         android:id="@+id/employeesFragment"
         android:name="com.hari.sample.ui.employee.EmployeesFragment"
-        android:label="Employees" />
+        android:label="Employees" >
+        <action
+            android:id="@+id/action_employeesFragment_to_employeeDetailsFragment"
+            app:destination="@id/employeeDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/employeeDetailsFragment"
+        android:name="com.hari.sample.ui.employee.details.EmployeeDetailsFragment"
+        android:label="{name}" >
+        <argument
+            android:name="empId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Add Employee" />
+    </fragment>
 </navigation>

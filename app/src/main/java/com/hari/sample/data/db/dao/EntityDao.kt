@@ -14,7 +14,7 @@ interface EntityDao<T : AppEntity> {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(t: List<T>)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update(t: T)
 
     @Delete

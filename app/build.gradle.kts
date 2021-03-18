@@ -9,6 +9,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 
@@ -80,4 +81,6 @@ dependencies {
     implementation(Dep.Epoxy.core)
     kapt(Dep.Epoxy.epoxyProcessor)
     implementation(Dep.Epoxy.databinding)
+
+    implementation( "com.github.jpvs0101:Currencyfy:v1.0.2")
 }
